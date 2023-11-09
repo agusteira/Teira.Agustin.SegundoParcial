@@ -1,0 +1,23 @@
+[
+  {
+    "propertyCapacidad": 4,
+    "propertyVolumenTanque": 320,
+    "añoFabricacionProperty": 2007,
+    "velMaxProperty": 120,
+    "colorProperty": 1
+  },
+  {
+    "propertyCapacidad": 400,
+    "propertyCantMotores": 8,
+    "añoFabricacionProperty": 2000,
+    "velMaxProperty": 800,
+    "colorProperty": 0
+  },
+  {
+    "propertyCantVagones": 8,
+    "propertyPaisOrigen": "España",
+    "añoFabricacionProperty": 1890,
+    "velMaxProperty": 75,
+    "colorProperty": 2
+  }
+]

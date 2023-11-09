@@ -1,0 +1,24 @@
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\bin\Debug\net6.0\Proyecto de clases.deps.json
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\bin\Debug\net6.0\Proyecto de clases.dll
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\bin\Debug\net6.0\Proyecto de clases.pdb
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.csproj.AssemblyReference.cache
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.GeneratedMSBuildEditorConfig.editorconfig
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.AssemblyInfoInputs.cache
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.AssemblyInfo.cs
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.csproj.CoreCompileInputs.cache
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.dll
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\refint\Proyecto de clases.dll
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.pdb
+D:\Descargas\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\ref\Proyecto de clases.dll
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\bin\Debug\net6.0\Proyecto de clases.deps.json
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\bin\Debug\net6.0\Proyecto de clases.dll
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\bin\Debug\net6.0\Proyecto de clases.pdb
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.csproj.AssemblyReference.cache
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.AssemblyInfoInputs.cache
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.AssemblyInfo.cs
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.csproj.CoreCompileInputs.cache
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.dll
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\refint\Proyecto de clases.dll
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.pdb
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\PARCIAL\RECU\Teira.Agustin.PrimerParcial-RecuperatorioPP\Proyecto de clases\obj\Debug\net6.0\ref\Proyecto de clases.dll
