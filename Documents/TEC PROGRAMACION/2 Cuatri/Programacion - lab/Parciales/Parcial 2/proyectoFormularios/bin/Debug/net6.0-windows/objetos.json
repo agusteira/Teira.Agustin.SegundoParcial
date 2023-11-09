@@ -1,0 +1,66 @@
+[
+  {
+    "propertyCantVagones": 8,
+    "propertyPaisOrigen": "Argentina",
+    "añoFabricacionProperty": 1980,
+    "velMaxProperty": 25,
+    "colorProperty": 9,
+    "tipoProperty": 3
+  },
+  {
+    "propertyCantVagones": 2,
+    "propertyPaisOrigen": "Escocia",
+    "añoFabricacionProperty": 1943,
+    "velMaxProperty": 70,
+    "colorProperty": 0,
+    "tipoProperty": 3
+  },
+  {
+    "propertyCantVagones": 8,
+    "propertyPaisOrigen": "España",
+    "añoFabricacionProperty": 1890,
+    "velMaxProperty": 75,
+    "colorProperty": 2,
+    "tipoProperty": 3
+  },
+  {
+    "propertyAsientos": 42,
+    "propertyCantMotores": 2,
+    "añoFabricacionProperty": 1956,
+    "velMaxProperty": 200,
+    "colorProperty": 3,
+    "tipoProperty": 2
+  },
+  {
+    "propertyAsientos": 200,
+    "propertyCantMotores": 2,
+    "añoFabricacionProperty": 1980,
+    "velMaxProperty": 200,
+    "colorProperty": 0,
+    "tipoProperty": 2
+  },
+  {
+    "propertyCapacidad": 4,
+    "propertyVolumenTanque": 120,
+    "añoFabricacionProperty": 2007,
+    "velMaxProperty": 200,
+    "colorProperty": 1,
+    "tipoProperty": 1
+  },
+  {
+    "propertyAsientos": 153,
+    "propertyCantMotores": 4,
+    "añoFabricacionProperty": 2012,
+    "velMaxProperty": 760,
+    "colorProperty": 6,
+    "tipoProperty": 2
+  },
+  {
+    "propertyAsientos": 800,
+    "propertyCantMotores": 8,
+    "añoFabricacionProperty": 2000,
+    "velMaxProperty": 800,
+    "colorProperty": 1,
+    "tipoProperty": 2
+  }
+]

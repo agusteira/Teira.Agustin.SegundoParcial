@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Forms\formCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmAcciones\frmSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmAcciones\visualizadorLogins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmElegirTipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmVehiculos\frmAviones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmVehiculos\frmTrenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmVehiculos\frmAutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\frmVehiculos\frmVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
