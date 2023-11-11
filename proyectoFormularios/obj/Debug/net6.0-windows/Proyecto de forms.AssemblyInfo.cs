@@ -11,23 +11,15 @@
 using System;
 using System.Reflection;
 
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("NombreDelProyecto")]
-[assembly: AssemblyDescription("Descripción del proyecto")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Nombre de la empresa o autor")]
-[assembly: AssemblyProduct("Nombre del producto")]
-[assembly: AssemblyCopyright("Copyright © 2023")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-
-[assembly: ComVisible(false)]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-
+[assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto de forms")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyProductAttribute("Proyecto de forms")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Proyecto de forms")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

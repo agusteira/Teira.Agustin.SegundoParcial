@@ -39,10 +39,14 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// <param name="frm">form que se abrio anteriormente y define el tipo</param>
         public frmVehiculos(frmElegirTipo frm) : this()
         {
-            this.tipo = frm.tipoElegido;
-            this.lblTipo.Text = this.tipo.ToUpper();
-
-            this.definirTipoParaLabels(this.tipo);
+            try
+            {
+                this.tipo = frm.tipoElegido;
+                this.lblTipo.Text = this.tipo.ToUpper();
+                this.definirTipoParaLabels(this.tipo);
+            }
+            catch { }
+            
         }
 
         #endregion

@@ -9,26 +9,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proyecto_de_forms.Forms.frmAcciones;
+using login;
 
 namespace Teira.Agustin.PrimerParcial.Forms
 {
     public partial class formCRUD : Form
     {
         Entidades.Contenedora contenedora = new Entidades.Contenedora();
+        Usuario usuario = new Usuario();
 
         /// <summary>
         /// Constructor de inicializacion del form del crud
         /// </summary>
         /// <param name="user">El tipo de usuario que se logueo</param>
-        public formCRUD(string user)
+        public formCRUD(Usuario user)
         {
+            
             InitializeComponent();
+            
             contenedora.vehiculosProperty = Contenedora.Deserializacion("");
 
             DateTime thisDay = DateTime.Today;
             this.txtFecha.Text = thisDay.ToString("d");
-            this.txtUsuario.Text = user;
+            this.usuario = user;
+            this.txtUsuario.Text = this.usuario.ToString();
 
+            this.DefinirPerfiles();
             this.ActualizarVisor();
         }
 
@@ -264,6 +270,25 @@ namespace Teira.Agustin.PrimerParcial.Forms
             }
             Contenedora.Serializacion(this.contenedora.vehiculosProperty, "");
 
+        }
+
+        /// <summary>
+        /// Define que tipo de perfil es, y dependiendo que 
+        /// perfil es el usuario, va a poder utilizar los botones
+        /// del CRUD, o no
+        /// </summary>
+        private void DefinirPerfiles()
+        {
+            if (this.usuario.Perfil== "vendedor")
+            {
+                this.btnAgregar.Enabled = false;
+                this.btnEliminar.Enabled = false;
+                this.btnModificar.Enabled = false;
+            }
+            else if(this.usuario.Perfil == "supervisor")
+            {
+                this.btnEliminar.Enabled = false;
+            }
         }
 
         #endregion

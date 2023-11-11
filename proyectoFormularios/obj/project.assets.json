@@ -79,11 +79,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\proyectoFormularios\\Proyecto de forms.csproj",
+      "projectUniqueName": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\proyectoFormularios\\Proyecto de forms.csproj",
       "projectName": "Proyecto de forms",
-      "projectPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\proyectoFormularios\\Proyecto de forms.csproj",
+      "projectPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\proyectoFormularios\\Proyecto de forms.csproj",
       "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\proyectoFormularios\\obj\\",
+      "outputPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\proyectoFormularios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Program files\\VS\\Shared\\NuGetPackages"
@@ -104,8 +104,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\Proyecto de clases.csproj": {
-              "projectPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\Proyecto de clases.csproj"
+            "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\Proyecto de clases.csproj": {
+              "projectPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\Proyecto de clases.csproj"
             }
           }
         }

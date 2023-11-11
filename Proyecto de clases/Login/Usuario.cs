@@ -23,14 +23,20 @@ namespace login
         private static List<Usuario> Deserializacion(string path = @"..\..\..\MOCK_DATA.json")
         {
             List<Usuario> retorno = new List<Usuario>();
+            try{
+                if (File.Exists(path))
+                {
+                    string json = File.ReadAllText(path);
 
-            if (File.Exists(path))
+                    retorno = JsonConvert.DeserializeObject<List<Usuario>>(json);
+                }
+            }
+            catch
             {
-                string json = File.ReadAllText(path);
-
-                retorno = JsonConvert.DeserializeObject<List<Usuario>>(json);
+                retorno = null;
             }
             return retorno;
+
         }
 
         /// <summary>
@@ -63,13 +69,16 @@ namespace login
         private static void RegistrarAcceso(Usuario usuario)
         {
             string logFilePath = @"..\..\..\usuarios.log";
-
-            using (StreamWriter writer = File.AppendText(logFilePath))
+            try
             {
-                string fechaHora = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                string mensaje = $"Acceso de usuario: {usuario.Apellido} {usuario.Nombre} (Legajo: {usuario.Legajo}) - Fecha y hora: {fechaHora}";
-                writer.WriteLine(mensaje);
+                using (StreamWriter writer = File.AppendText(logFilePath))
+                {
+                    string fechaHora = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    string mensaje = $"Acceso de usuario: {usuario.Apellido} {usuario.Nombre} (Legajo: {usuario.Legajo}) - Fecha y hora: {fechaHora}";
+                    writer.WriteLine(mensaje);
+                }
             }
+            catch { }
         }
         
         /// <summary>

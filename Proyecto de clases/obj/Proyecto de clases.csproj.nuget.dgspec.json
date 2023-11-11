@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\Proyecto de clases.csproj": {}
+    "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\Proyecto de clases.csproj": {}
   },
   "projects": {
-    "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\Proyecto de clases.csproj": {
+    "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\Proyecto de clases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\Proyecto de clases.csproj",
+        "projectUniqueName": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\Proyecto de clases.csproj",
         "projectName": "Proyecto de clases",
-        "projectPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\Proyecto de clases.csproj",
+        "projectPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\Proyecto de clases.csproj",
         "packagesPath": "C:\\Users\\agust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\PARCIAL\\RECU\\Teira.Agustin.PrimerParcial-RecuperatorioPP\\Proyecto de clases\\obj\\",
+        "outputPath": "C:\\Users\\agust\\Documents\\TEC PROGRAMACION\\2 Cuatri\\Programacion - lab\\Parciales\\Parcial 2\\Teira.Agustin.SegundoParcial\\Proyecto de clases\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Program files\\VS\\Shared\\NuGetPackages"

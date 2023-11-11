@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Teira.Agustin.PrimerParcial.Forms
 {
     internal static class Program
@@ -21,7 +22,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
             Login login = new Login();
             if (login.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new formCRUD(login.usuario.ToString()));
+                Application.Run(new formCRUD(login.usuario));
             }
             else
             {
