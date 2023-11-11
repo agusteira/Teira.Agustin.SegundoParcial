@@ -141,12 +141,12 @@
             // 
             // btnEncender
             // 
-            btnEncender.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEncender.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnEncender.Location = new Point(897, 589);
             btnEncender.Name = "btnEncender";
             btnEncender.Size = new Size(75, 75);
             btnEncender.TabIndex = 10;
-            btnEncender.Text = "E";
+            btnEncender.Text = "Encender";
             btnEncender.UseVisualStyleBackColor = true;
             btnEncender.Click += btnEncender_Click;
             // 
@@ -205,12 +205,12 @@
             // 
             // btnVisualidorLogins
             // 
-            btnVisualidorLogins.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVisualidorLogins.Location = new Point(894, 11);
+            btnVisualidorLogins.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVisualidorLogins.Location = new Point(878, 11);
             btnVisualidorLogins.Name = "btnVisualidorLogins";
-            btnVisualidorLogins.Size = new Size(75, 75);
+            btnVisualidorLogins.Size = new Size(91, 75);
             btnVisualidorLogins.TabIndex = 16;
-            btnVisualidorLogins.Text = "VL";
+            btnVisualidorLogins.Text = "Visualizador\r\nLogins";
             btnVisualidorLogins.UseVisualStyleBackColor = true;
             btnVisualidorLogins.Click += btnVisualidorLogins_Click;
             // 

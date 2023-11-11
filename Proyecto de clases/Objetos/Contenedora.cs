@@ -9,9 +9,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Entidades
 {
-    public class Contenedora
+    public class Contenedora <T> where T : Vehiculo
     {
-        protected List<Vehiculo> vehiculos = new List<Vehiculo>();
+        protected List<Vehiculo> vehiculos;
         protected static string pathPredeterminado = @".\objetos.json";
 
         #region propertys
@@ -27,7 +27,7 @@ namespace Entidades
         #endregion
 
         #region metodos para agregar o eliminar objetos de la lista
-        public void Agregar(Vehiculo vehiculo)
+        public void Agregar(T vehiculo)
         {
             if (this!=vehiculo)
             {
@@ -37,15 +37,15 @@ namespace Entidades
 
         public void eliminar(int indice)
         {
-            if (this==(vehiculos[indice]))
+            if (this==(T)(vehiculos[indice]))
             {
                 vehiculos.Remove(vehiculos[indice]);
             }
         }
 
-        public void eliminar(Vehiculo v)
+        public void eliminar(T v)
         {
-            if (this==v)
+            if (this== v)
             {
                 vehiculos.Remove(v);
             }
@@ -58,7 +58,7 @@ namespace Entidades
         /// </summary>
         /// <param name="lista">lista de vehiculos</param>
         /// <param name="v">elemento a agregar</param>
-        public static Contenedora operator +(Contenedora lista, Vehiculo v)
+        public static Contenedora<T> operator +(Contenedora<T> lista, T v)
         {
             lista.Agregar(v);
             return lista;
@@ -70,7 +70,7 @@ namespace Entidades
         /// <param name="lista">lista a eliminar el objeto</param>
         /// <param name="v">objeto a eliminar</param>
         /// <returns></returns>
-        public static Contenedora operator -(Contenedora lista, Vehiculo v)
+        public static Contenedora<T> operator -(Contenedora<T> lista, T v)
         {
             lista.eliminar(v);
             return lista;
@@ -83,7 +83,7 @@ namespace Entidades
         /// </summary>
         /// <param name="lista"> Objeto contenedora que va a comparar</param>
         /// <param name="v">Vehiculo a comparar</param>
-        public static bool operator ==(Contenedora lista, Vehiculo v)
+        public static bool operator ==(Contenedora<T> lista, T v)
         {
             if (lista != null)
             {
@@ -95,7 +95,7 @@ namespace Entidades
             }
         }
 
-        public static bool operator !=(Contenedora lista, Vehiculo v)
+        public static bool operator !=(Contenedora<T> lista, T v)
         {
             return !(lista.vehiculos.Contains(v));
         }
@@ -110,7 +110,7 @@ namespace Entidades
         /// <param name="v1"> Primer vehiculo para comparar</param>
         /// <param name="v2"> segundo vehiculo para comparar</param>
         /// <returns></returns>
-        public static int OrdenarAscedentePorAño(Vehiculo v1, Vehiculo v2)
+        public static int OrdenarAscedentePorAño(T v1, T v2)
         {
             if (v1 > v2)
             {
@@ -130,7 +130,7 @@ namespace Entidades
         /// <param name="v1"> Primer vehiculo para comparar</param>
         /// <param name="v2"> segundo vehiculo para comparar</param>
         /// <returns></returns>
-        public static int OrdenarDescendentePorAño(Vehiculo v1, Vehiculo v2)
+        public static int OrdenarDescendentePorAño(T v1, T v2)
         {
             if (v1.añoFabricacionProperty < v2.añoFabricacionProperty)
             {
@@ -149,10 +149,8 @@ namespace Entidades
         /// </summary>
         /// <param name="v1"> Primer vehiculo para comparar</param>
         /// <param name="v2"> segundo vehiculo para comparar</param>
-        public static int OrdenarAscedenteVelMax(Vehiculo v1, Vehiculo v2)
+        public static int OrdenarAscedenteVelMax(T v1, T v2)
         {
-            //Me compara ascendentemente los años en los que fueron creados
-            //los vehiculos utilizando su atributo de velocidad maxima
             if (v1.velMaxProperty > v2.velMaxProperty)
             {
                 return -1;
@@ -170,7 +168,7 @@ namespace Entidades
         /// </summary>
         /// <param name="v1"> Primer vehiculo para comparar</param>
         /// <param name="v2"> segundo vehiculo para comparar</param>
-        public static int OrdenarDescendenteVelMax(Vehiculo v1, Vehiculo v2)
+        public static int OrdenarDescendenteVelMax(T v1, T v2)
         {
             
             if (v1.velMaxProperty < v2.velMaxProperty)
@@ -195,17 +193,25 @@ namespace Entidades
         /// <param name="path">La ruta del archivo</param>
         public static void Serializacion(List<Vehiculo> vehiculos, string path)
         {
+            //Si el path dado no es correcto, se utiliza uno predeterminado
             if (path == null || path.Length == 0) { path = pathPredeterminado; }
             else 
             { 
+                //Si el path no contiene la extension .json, se le agrega, asi puede
+                //guardarse de forma correcta
                 if (!path.Contains(".json"))
                 {
                     path += ".json";
                 }
             }
+
+            try //serializar
+            {
+                string json = JsonConvert.SerializeObject(vehiculos, Formatting.Indented);
+                File.WriteAllText(path, json);
+            }
+            catch { }   
             
-            string json = JsonConvert.SerializeObject(vehiculos, Formatting.Indented);
-            File.WriteAllText(path, json);
         }
         
         /// <summary>
@@ -217,35 +223,44 @@ namespace Entidades
         /// <exception cref="InvalidOperationException"></exception>
         public static List<Vehiculo> Deserializacion(string path)
         {
+            //Si el path dado no es correcto, se utiliza uno predeterminado
             if (path == null || path.Length == 0) { path = pathPredeterminado;  }
-
             List<Vehiculo> retorno = new List<Vehiculo>();
+
             //Lee un archivo json y los convierte en objetos
             if (File.Exists(path))
             {
-                string json = File.ReadAllText(path);
-
-                JArray jsonArray = JArray.Parse(json);
-                foreach (JObject jsonObject in jsonArray)
+                try
                 {
-                    int tipo = jsonObject["tipoProperty"].Value<int>();
-;                   Vehiculo v;
-                    switch (tipo)
+                    string json = File.ReadAllText(path);
+
+                    JArray jsonArray = JArray.Parse(json);
+                    foreach (JObject jsonObject in jsonArray)
                     {
-                        case 1:
-                            v = jsonObject.ToObject<Auto>();
-                            break;
-                        case 2:
-                            v = jsonObject.ToObject<Avion>();
-                            break;
-                        case 3:
-                            v = jsonObject.ToObject<Tren>();
-                            break;
-                        default:
-                            throw new InvalidOperationException("Tipo de vehículo desconocido");
+                        int tipo = jsonObject["tipoProperty"].Value<int>();
+                        ; Vehiculo v;
+
+                        //Define que tipo de objeto es segun el atributo "Tipo"
+                        //y lo castea a ese objeto
+                        switch (tipo)
+                        {
+                            case 1:
+                                v = jsonObject.ToObject<Auto>();
+                                break;
+                            case 2:
+                                v = jsonObject.ToObject<Avion>();
+                                break;
+                            case 3:
+                                v = jsonObject.ToObject<Tren>();
+                                break;
+                            default:
+                                throw new InvalidOperationException("Tipo de vehículo desconocido");
+                        }
+                        retorno.Add(v);
                     }
-                    retorno.Add(v);
                 }
+                catch { retorno = null; }
+                
             }
 
             // En caso de error o si el archivo no existe, regresar una lista vacía o null según tus necesidades 

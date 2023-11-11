@@ -15,7 +15,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
 {
     public partial class formCRUD : Form
     {
-        Entidades.Contenedora contenedora = new Entidades.Contenedora();
+        Entidades.Contenedora<Vehiculo> contenedora = new Entidades.Contenedora<Vehiculo>();
         Usuario usuario = new Usuario();
 
         /// <summary>
@@ -24,10 +24,9 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// <param name="user">El tipo de usuario que se logueo</param>
         public formCRUD(Usuario user)
         {
-            
             InitializeComponent();
-            
-            contenedora.vehiculosProperty = Contenedora.Deserializacion("");
+
+            contenedora.vehiculosProperty = Contenedora<Vehiculo>.Deserializacion("");
 
             DateTime thisDay = DateTime.Today;
             this.txtFecha.Text = thisDay.ToString("d");
@@ -188,7 +187,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
             {
                 // Obtener la ubicación y el nombre del archivo seleccionado por el usuario.
                 string rutaElegida = openFileDialog.FileName;
-                contenedora.vehiculosProperty = Contenedora.Deserializacion(rutaElegida);
+                contenedora.vehiculosProperty = Contenedora<Vehiculo>.Deserializacion(rutaElegida);
                 this.ActualizarVisor();
             }
         }
@@ -203,7 +202,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
             {
                 // Obtener la ubicación y el nombre del archivo seleccionado por el usuario.
                 string rutaElegida = saveFileDialog.FileName;
-                Contenedora.Serializacion(this.contenedora.vehiculosProperty, rutaElegida);
+                Contenedora<Vehiculo>.Serializacion(this.contenedora.vehiculosProperty, rutaElegida);
             }
         }
 
@@ -231,11 +230,11 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora.OrdenarAscedentePorAño);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora.OrdenarAscedenteVelMax);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
             }
         }
 
@@ -249,11 +248,11 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora.OrdenarDescendentePorAño);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora.OrdenarDescendenteVelMax);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
             }
         }
 
@@ -268,8 +267,15 @@ namespace Teira.Agustin.PrimerParcial.Forms
             {
                 boxObjetcts.Items.Add(v.ToString());
             }
-            Contenedora.Serializacion(this.contenedora.vehiculosProperty, "");
 
+            try
+            {
+                Contenedora<Vehiculo>.Serializacion(this.contenedora.vehiculosProperty, "");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No se pudieron guardar los datos correctamente debido a {ex}");
+            }
         }
 
         /// <summary>
@@ -279,13 +285,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void DefinirPerfiles()
         {
-            if (this.usuario.Perfil== "vendedor")
+            if (this.usuario.Perfil == "vendedor")
             {
                 this.btnAgregar.Enabled = false;
                 this.btnEliminar.Enabled = false;
                 this.btnModificar.Enabled = false;
             }
-            else if(this.usuario.Perfil == "supervisor")
+            else if (this.usuario.Perfil == "supervisor")
             {
                 this.btnEliminar.Enabled = false;
             }

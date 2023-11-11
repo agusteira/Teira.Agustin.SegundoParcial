@@ -18,7 +18,7 @@ namespace Proyecto_de_forms.Forms.frmAcciones
         /// <summary>
         ///Constructor del form, inicializa sus componentes 
         /// </summary>
-        public frmSort(Contenedora contenedora)
+        public frmSort(Contenedora<Vehiculo> contenedora)
         {
             InitializeComponent();
         }

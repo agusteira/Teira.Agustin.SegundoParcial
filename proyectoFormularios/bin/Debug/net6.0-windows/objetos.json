@@ -48,19 +48,19 @@
     "tipoProperty": 1
   },
   {
-    "propertyAsientos": 153,
-    "propertyCantMotores": 4,
-    "añoFabricacionProperty": 2012,
-    "velMaxProperty": 760,
-    "colorProperty": 6,
-    "tipoProperty": 2
-  },
-  {
     "propertyAsientos": 800,
     "propertyCantMotores": 8,
     "añoFabricacionProperty": 2000,
     "velMaxProperty": 800,
     "colorProperty": 1,
     "tipoProperty": 2
+  },
+  {
+    "propertyCapacidad": 2,
+    "propertyVolumenTanque": 50,
+    "añoFabricacionProperty": 1925,
+    "velMaxProperty": 25,
+    "colorProperty": 3,
+    "tipoProperty": 1
   }
 ]
