@@ -9,8 +9,17 @@ using Newtonsoft.Json.Linq;
 
 namespace Entidades
 {
-    public class Contenedora <T> where T : Vehiculo
+
+    // Declaración del delegado para el evento de adición de vehículo
+    public delegate void VehiculoSubidoEventHandler();
+
+    public class Contenedora<T> where T : Vehiculo
     {
+        public event VehiculoSubidoEventHandler VehiculoAgregado;
+        public event VehiculoSubidoEventHandler VehiculoNoAgregado;
+        public event VehiculoSubidoEventHandler VehiculoEliminado;
+        public event VehiculoSubidoEventHandler VehiculoModificado;
+
         protected List<Vehiculo> vehiculos;
         protected static string pathPredeterminado = @".\objetos.json";
 
@@ -18,10 +27,7 @@ namespace Entidades
 
         public List<Vehiculo> vehiculosProperty
         {
-            get
-            {
-                return vehiculos;
-            }
+            get { return vehiculos; }
             set { vehiculos = value; }
         }
         #endregion
@@ -29,26 +35,39 @@ namespace Entidades
         #region metodos para agregar o eliminar objetos de la lista
         public void Agregar(T vehiculo)
         {
-            if (this!=vehiculo)
+            if (this != vehiculo)
             {
                 vehiculos.Add(vehiculo);
+                this.VehiculoAgregado.Invoke();
+            }
+            else
+            {
+                this.VehiculoNoAgregado.Invoke();
             }
         }
 
         public void eliminar(int indice)
         {
-            if (this==(T)(vehiculos[indice]))
+            if (this == (T)(vehiculos[indice]))
             {
                 vehiculos.Remove(vehiculos[indice]);
+                this.VehiculoEliminado.Invoke();
             }
         }
 
         public void eliminar(T v)
         {
-            if (this== v)
+            if (this == v)
             {
                 vehiculos.Remove(v);
+                this.VehiculoEliminado.Invoke();
             }
+        }
+
+        public void Modificar(T v, int indice)
+        {
+            vehiculos[indice] = v;
+            this.VehiculoModificado.Invoke();
         }
         #endregion
 
@@ -268,5 +287,7 @@ namespace Entidades
         }
 
         #endregion
+
+
     }
 }

@@ -59,8 +59,24 @@
     "propertyCapacidad": 2,
     "propertyVolumenTanque": 50,
     "añoFabricacionProperty": 1925,
-    "velMaxProperty": 25,
+    "velMaxProperty": 35,
     "colorProperty": 3,
+    "tipoProperty": 1
+  },
+  {
+    "propertyCapacidad": 5,
+    "propertyVolumenTanque": 300,
+    "añoFabricacionProperty": 2023,
+    "velMaxProperty": 250,
+    "colorProperty": 3,
+    "tipoProperty": 1
+  },
+  {
+    "propertyCapacidad": 6,
+    "propertyVolumenTanque": 200,
+    "añoFabricacionProperty": 2022,
+    "velMaxProperty": 500,
+    "colorProperty": 9,
     "tipoProperty": 1
   }
 ]

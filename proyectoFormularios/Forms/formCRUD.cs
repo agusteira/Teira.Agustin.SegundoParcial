@@ -28,6 +28,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
 
             contenedora.vehiculosProperty = Contenedora<Vehiculo>.Deserializacion("");
 
+            //Suscripcion a eventos
+            this.contenedora.VehiculoAgregado += new VehiculoSubidoEventHandler(Advertencias.VehiculoNuevo);
+            this.contenedora.VehiculoNoAgregado += new VehiculoSubidoEventHandler(Advertencias.VehiculoRepetido);
+            this.contenedora.VehiculoModificado += new VehiculoSubidoEventHandler(Advertencias.VehiculoModificado);
+            this.contenedora.VehiculoEliminado += new VehiculoSubidoEventHandler(Advertencias.VehiculoEliminado);
+
+
             DateTime thisDay = DateTime.Today;
             this.txtFecha.Text = thisDay.ToString("d");
             this.usuario = user;
@@ -45,7 +52,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
             frmElegirTipo frmElegirTipo = new frmElegirTipo();
             frmElegirTipo.ShowDialog();
 
@@ -57,6 +63,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 this.ActualizarVisor();
             }
         }
+
 
         /// <summary>
         ///Agarra el objeto seleccionado de la listBox, y crea un nuevo formulario
@@ -76,23 +83,22 @@ namespace Teira.Agustin.PrimerParcial.Forms
             if (this.contenedora.vehiculosProperty[indice] is Auto)
             {
                 frm = new frmAutos((Auto)this.contenedora.vehiculosProperty[indice]);
-                frm.ShowDialog();
             }
             else if (this.contenedora.vehiculosProperty[indice] is Avion)
             {
                 frm = new frmAviones((Avion)this.contenedora.vehiculosProperty[indice]);
-                frm.ShowDialog();
             }
             else if (this.contenedora.vehiculosProperty[indice] is Tren)
             {
                 frm = new frmTrenes((Tren)this.contenedora.vehiculosProperty[indice]);
-                frm.ShowDialog();
             }
+
+            frm.ShowDialog();
 
             if (frm.DialogResult == DialogResult.OK)
             {
                 //si se presiono aceptar
-                this.contenedora.vehiculosProperty[indice] = frm.vehicular;
+                this.contenedora.Modificar(frm.vehicular, indice);
                 //Actualiza el listbox
                 this.ActualizarVisor();
             }
@@ -285,6 +291,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void DefinirPerfiles()
         {
+            /*
             if (this.usuario.Perfil == "vendedor")
             {
                 this.btnAgregar.Enabled = false;
@@ -295,6 +302,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
             {
                 this.btnEliminar.Enabled = false;
             }
+            */
         }
 
         #endregion

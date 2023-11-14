@@ -96,6 +96,7 @@ namespace login
             }
             return logLines;
         }
+        
         public override string ToString()
         {
             return $"{this.Perfil} - {this.Apellido}";

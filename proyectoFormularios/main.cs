@@ -20,13 +20,18 @@ namespace Teira.Agustin.PrimerParcial.Forms
             ApplicationConfiguration.Initialize();
 
             Login login = new Login();
+            Application.Run(new formCRUD(login.usuario));
+            
             if (login.ShowDialog() == DialogResult.OK)
             {
+                login.Close();
                 Application.Run(new formCRUD(login.usuario));
             }
             else
             {
+                
                 login.Close();
+                Application.Run(new formCRUD(login.usuario));
             }
         }
     }
