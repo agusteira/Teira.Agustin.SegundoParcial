@@ -240,6 +240,7 @@
             Text = "formCRUD";
             ResumeLayout(false);
             PerformLayout();
+            FormClosing += formCRUD_FormClosing;
         }
 
         #endregion

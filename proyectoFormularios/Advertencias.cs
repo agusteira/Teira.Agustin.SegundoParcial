@@ -28,5 +28,18 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             MessageBox.Show("El vehículo se MODIFICO con exito.", "Vehiculo Modificado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        public static bool FormClosing()
+        {
+            bool retorno = false;
+            DialogResult result = MessageBox.Show("Desea cerrar el formulario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                retorno = true;
+            }
+
+            return retorno;
+        }
+   
     }
 }

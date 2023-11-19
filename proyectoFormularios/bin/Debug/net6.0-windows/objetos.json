@@ -8,6 +8,14 @@
     "tipoProperty": 3
   },
   {
+    "propertyCapacidad": 2,
+    "propertyVolumenTanque": 50,
+    "añoFabricacionProperty": 1925,
+    "velMaxProperty": 35,
+    "colorProperty": 3,
+    "tipoProperty": 1
+  },
+  {
     "propertyCantVagones": 2,
     "propertyPaisOrigen": "Escocia",
     "añoFabricacionProperty": 1943,
@@ -48,22 +56,6 @@
     "tipoProperty": 1
   },
   {
-    "propertyAsientos": 800,
-    "propertyCantMotores": 8,
-    "añoFabricacionProperty": 2000,
-    "velMaxProperty": 800,
-    "colorProperty": 1,
-    "tipoProperty": 2
-  },
-  {
-    "propertyCapacidad": 2,
-    "propertyVolumenTanque": 50,
-    "añoFabricacionProperty": 1925,
-    "velMaxProperty": 35,
-    "colorProperty": 3,
-    "tipoProperty": 1
-  },
-  {
     "propertyCapacidad": 5,
     "propertyVolumenTanque": 300,
     "añoFabricacionProperty": 2023,
@@ -78,5 +70,13 @@
     "velMaxProperty": 500,
     "colorProperty": 9,
     "tipoProperty": 1
+  },
+  {
+    "propertyAsientos": 790,
+    "propertyCantMotores": 8,
+    "añoFabricacionProperty": 2000,
+    "velMaxProperty": 800,
+    "colorProperty": 1,
+    "tipoProperty": 2
   }
 ]

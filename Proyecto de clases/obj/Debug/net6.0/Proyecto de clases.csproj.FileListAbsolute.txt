@@ -34,3 +34,5 @@ C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\
 C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\Parcial 2\Teira.Agustin.SegundoParcial\Proyecto de clases\obj\Debug\net6.0\refint\Proyecto de clases.dll
 C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\Parcial 2\Teira.Agustin.SegundoParcial\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.pdb
 C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\Parcial 2\Teira.Agustin.SegundoParcial\Proyecto de clases\obj\Debug\net6.0\ref\Proyecto de clases.dll
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\Parcial 2\Teira.Agustin.SegundoParcial\Proyecto de clases\obj\Debug\net6.0\Proyecto_de_clases.Properties.Resources.resources
+C:\Users\agust\Documents\TEC PROGRAMACION\2 Cuatri\Programacion - lab\Parciales\Parcial 2\Teira.Agustin.SegundoParcial\Proyecto de clases\obj\Debug\net6.0\Proyecto de clases.csproj.GenerateResource.cache

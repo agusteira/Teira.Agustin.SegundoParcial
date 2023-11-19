@@ -20,7 +20,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
             ApplicationConfiguration.Initialize();
 
             Login login = new Login();
-            Application.Run(new formCRUD(login.usuario));
+            //Application.Run(new formCRUD(login.usuario));
             
             if (login.ShowDialog() == DialogResult.OK)
             {
@@ -29,7 +29,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
             }
             else
             {
-                
                 login.Close();
                 Application.Run(new formCRUD(login.usuario));
             }

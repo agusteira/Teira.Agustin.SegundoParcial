@@ -1,11 +1,15 @@
 ﻿using colores;
 using tipos;
 using System.Drawing;
+using System.Data.Common;
 
 namespace Entidades
 {
     public abstract class Vehiculo
     {
+        private static int contadorID = 0;
+
+        protected int id;
         protected int añoFabricacion;
         protected int velocidadMax;
         protected enumColor colorPredominante;
@@ -24,6 +28,7 @@ namespace Entidades
             this.añoFabricacion = 0;
             this.colorPredominante = 0;
             this.velocidadMax = 0;
+            this.id = ++contadorID;
         }
 
         /// <param name="añoFabricacion">El año que se fabrico el vehiculo</param>
@@ -93,6 +98,20 @@ namespace Entidades
             set { tipo = value; }
         }
 
+        public int idProperty
+        {
+            get { return id; }
+            set 
+            { 
+                id = value; 
+                if (id>contadorID)
+                {
+                    contadorID = id; //Si la ID es mayor al contador, se setea el nuevo contador de ID
+                                        // a partir de la ID dada
+                }
+            }
+        }
+
         #endregion
 
         #region sobreescritura ToString and Equals
@@ -156,6 +175,7 @@ namespace Entidades
         {
             this.apagadoEncendido = !estado;
         }
+
         #endregion
 
     }

@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using colores;
+using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Entidades
 {
-
     // Declaración del delegado para el evento de adición de vehículo
     public delegate void VehiculoSubidoEventHandler();
 
     public class Contenedora<T> where T : Vehiculo
     {
+        //eventos
         public event VehiculoSubidoEventHandler VehiculoAgregado;
         public event VehiculoSubidoEventHandler VehiculoNoAgregado;
         public event VehiculoSubidoEventHandler VehiculoEliminado;
@@ -22,6 +25,7 @@ namespace Entidades
 
         protected List<Vehiculo> vehiculos;
         protected static string pathPredeterminado = @".\objetos.json";
+        AccesoVehiculos accesoVehiculos = new AccesoVehiculos();
 
         #region propertys
 
@@ -39,6 +43,7 @@ namespace Entidades
             {
                 vehiculos.Add(vehiculo);
                 this.VehiculoAgregado.Invoke();
+                accesoVehiculos.AgregarVehiculo(vehiculo);
             }
             else
             {
@@ -50,6 +55,7 @@ namespace Entidades
         {
             if (this == (T)(vehiculos[indice]))
             {
+                accesoVehiculos.EliminarDato(vehiculos[indice]);
                 vehiculos.Remove(vehiculos[indice]);
                 this.VehiculoEliminado.Invoke();
             }
@@ -61,12 +67,15 @@ namespace Entidades
             {
                 vehiculos.Remove(v);
                 this.VehiculoEliminado.Invoke();
+                accesoVehiculos.EliminarDato(v);
             }
         }
 
         public void Modificar(T v, int indice)
         {
             vehiculos[indice] = v;
+            vehiculos[indice].idProperty = indice + 1;
+            accesoVehiculos.ModificarDato(vehiculos[indice]);
             this.VehiculoModificado.Invoke();
         }
         #endregion
@@ -82,7 +91,7 @@ namespace Entidades
             lista.Agregar(v);
             return lista;
         }
-        
+
         /// <summary>
         /// Eliminar un objeto de una lista contenedora dada
         /// </summary>
@@ -141,7 +150,7 @@ namespace Entidades
             }
             else { return 0; }
         }
-        
+
         /// <summary>
         /// Me compara descendentemente los años en los que fueron creados
         /// los vehiculos utilizando la conversion explicita de la clase vehiculo
@@ -189,7 +198,7 @@ namespace Entidades
         /// <param name="v2"> segundo vehiculo para comparar</param>
         public static int OrdenarDescendenteVelMax(T v1, T v2)
         {
-            
+
             if (v1.velMaxProperty < v2.velMaxProperty)
             {
                 return -1;
@@ -202,6 +211,22 @@ namespace Entidades
         }
         #endregion
 
+        public static void Serializacion(List<Vehiculo> vehiculos, string path) { }
+
+        public static List<Vehiculo> Deserializacion(string path) 
+        { 
+            List<Vehiculo> listaVehiculos = new List<Vehiculo>();
+            AccesoVehiculos ado = new AccesoVehiculos();
+
+            if (ado.TestConnection())
+            {
+                listaVehiculos = ado.ObtenerListaVehiculos();
+            }
+
+            return listaVehiculos; 
+        }
+
+        /*
         #region serializacion
         /// <summary>
         /// A partir de una lista dada y una ruta, te serializa los objetos de la lista
@@ -233,6 +258,7 @@ namespace Entidades
             
         }
         
+        
         /// <summary>
         /// deserializar un json a partir de una ruta dada, y lo convierte
         /// en una lista de vehiculos
@@ -257,7 +283,7 @@ namespace Entidades
                     foreach (JObject jsonObject in jsonArray)
                     {
                         int tipo = jsonObject["tipoProperty"].Value<int>();
-                        ; Vehiculo v;
+                        Vehiculo v;
 
                         //Define que tipo de objeto es segun el atributo "Tipo"
                         //y lo castea a ese objeto
@@ -287,7 +313,7 @@ namespace Entidades
         }
 
         #endregion
-
+        */
 
     }
 }

@@ -6,10 +6,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proyecto_de_forms.Forms.frmAcciones;
 using login;
+using System.Linq.Expressions;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Teira.Agustin.PrimerParcial.Forms
 {
@@ -17,6 +20,9 @@ namespace Teira.Agustin.PrimerParcial.Forms
     {
         Entidades.Contenedora<Vehiculo> contenedora = new Entidades.Contenedora<Vehiculo>();
         Usuario usuario = new Usuario();
+
+        private delegate void ActionCargarInterfaz(Usuario user);
+        private delegate void ActionActualizarVisor();
 
         /// <summary>
         /// Constructor de inicializacion del form del crud
@@ -34,14 +40,8 @@ namespace Teira.Agustin.PrimerParcial.Forms
             this.contenedora.VehiculoModificado += new VehiculoSubidoEventHandler(Advertencias.VehiculoModificado);
             this.contenedora.VehiculoEliminado += new VehiculoSubidoEventHandler(Advertencias.VehiculoEliminado);
 
-
-            DateTime thisDay = DateTime.Today;
-            this.txtFecha.Text = thisDay.ToString("d");
-            this.usuario = user;
-            this.txtUsuario.Text = this.usuario.ToString();
-
-            this.DefinirPerfiles();
-            this.ActualizarVisor();
+            //Task cargarComponentes = Task.Run(() => CargarInterfaz(user));
+            this.CargarInterfaz(user);
         }
 
         #region instrucciones botones
@@ -63,7 +63,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 this.ActualizarVisor();
             }
         }
-
 
         /// <summary>
         ///Agarra el objeto seleccionado de la listBox, y crea un nuevo formulario
@@ -110,29 +109,19 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int indice = this.boxObjetcts.SelectedIndex;
+            DialogResult result = MessageBox.Show("Queres eliminar este objeto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (indice == -1)
+            if (DialogResult.Yes == result)
             {
-                return;
+                int indice = this.boxObjetcts.SelectedIndex;
+
+                if (indice == -1)
+                {
+                    return;
+                }
+                this.contenedora.eliminar(indice);
+                this.ActualizarVisor();
             }
-            this.contenedora.eliminar(indice);
-            this.ActualizarVisor();
-        }
-
-        /// <summary>
-        /// Cuando se esta por cerrar el form te tira una advertencia
-        /// </summary>
-        private void FormCRUD_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación de salida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.No)
-            {
-                // Cancelar el cierre del formulario si el usuario selecciona "No"
-                e.Cancel = true;
-            }
-
         }
 
         /// <summary>
@@ -221,6 +210,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
             vl.Show();
         }
 
+        /// <summary>
+        /// Cuando se esta por cerrar el form te tira una advertencia
+        /// </summary>
+        private void formCRUD_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = Advertencias.FormClosing();
+        }
 
         #endregion
 
@@ -236,11 +232,11 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
+                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño));
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
+                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax));
             }
         }
 
@@ -254,11 +250,11 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
+                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño));
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
+                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax));
             }
         }
 
@@ -268,20 +264,28 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void ActualizarVisor()
         {
-            this.boxObjetcts.Items.Clear();
-            foreach (Vehiculo v in this.contenedora.vehiculosProperty)
+            if (this.InvokeRequired)
             {
-                boxObjetcts.Items.Add(v.ToString());
+                ActionActualizarVisor delegado = new ActionActualizarVisor(ActualizarVisor);
+                this.BeginInvoke(delegado);
             }
-
-            try
+            else
             {
-                Contenedora<Vehiculo>.Serializacion(this.contenedora.vehiculosProperty, "");
+                this.boxObjetcts.Items.Clear();
+                foreach (Vehiculo v in this.contenedora.vehiculosProperty)
+                {
+                    boxObjetcts.Items.Add(v.ToString());
+                }
+                try
+                {
+                    Contenedora<Vehiculo>.Serializacion(this.contenedora.vehiculosProperty, "");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No se pudieron guardar los datos correctamente debido a {ex}");
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"No se pudieron guardar los datos correctamente debido a {ex}");
-            }
+            
         }
 
         /// <summary>
@@ -304,6 +308,29 @@ namespace Teira.Agustin.PrimerParcial.Forms
             }
             */
         }
+
+        private void CargarInterfaz(Usuario user)
+        {
+            if (this.InvokeRequired)
+            {
+                // Si estamos en un hilo diferente al de la interfaz de usuario,
+                // ejecutamos el código a través del hilo de la interfaz de usuario.
+                ActionCargarInterfaz delegado = new ActionCargarInterfaz(CargarInterfaz);
+                this.BeginInvoke(delegado, new object[] { user });
+            }
+            else
+            {
+                DateTime thisDay = DateTime.Today;
+                this.txtFecha.Text = thisDay.ToString("d");
+                this.usuario = new Usuario();
+                this.txtUsuario.Text = this.usuario.ToString();
+
+                this.DefinirPerfiles();
+                this.ActualizarVisor();
+            }
+        }
+
+
 
         #endregion
 

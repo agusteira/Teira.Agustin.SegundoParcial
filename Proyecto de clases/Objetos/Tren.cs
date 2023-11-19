@@ -40,13 +40,13 @@ namespace Entidades
         }
 
         /// <param name="cantVagones">Cantidad de vagones del tren</param>
-        public Tren(int añoFabricacion, int velocidadMax, string marca, int cantVagones) : this(añoFabricacion, velocidadMax, marca)
+        public Tren(int añoFabricacion, int velocidadMax, string colorPredominante, int cantVagones) : this(añoFabricacion, velocidadMax, colorPredominante)
         {
             this.cantVagones = cantVagones;
         }
 
         /// <param name="paisOrigen">Paises de origen</param>
-        public Tren(int añoFabricacion, int velocidadMax, string marca, int cantVagones, string paisOrigen) : this(añoFabricacion, velocidadMax, marca, cantVagones)
+        public Tren(int añoFabricacion, int velocidadMax, string colorPredominante, int cantVagones, string paisOrigen) : this(añoFabricacion, velocidadMax, colorPredominante, cantVagones)
         {
             this.paisOrigen = paisOrigen;
         }
