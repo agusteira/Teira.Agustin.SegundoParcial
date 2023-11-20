@@ -30,7 +30,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            usuario = (Usuario.Verificar(this.txtMail.Text, txtPassword.Text));
+            usuario = (Usuario.Verificar(this.txtMail.Text, txtPassword.Text, true));
 
             if (usuario != null)
             {

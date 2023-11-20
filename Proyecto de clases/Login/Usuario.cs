@@ -27,7 +27,6 @@ namespace login
                 if (File.Exists(path))
                 {
                     string json = File.ReadAllText(path);
-
                     retorno = JsonConvert.DeserializeObject<List<Usuario>>(json);
                 }
             }
@@ -36,7 +35,6 @@ namespace login
                 retorno = null;
             }
             return retorno;
-
         }
 
         /// <summary>
@@ -46,21 +44,30 @@ namespace login
         /// <param name="mail">Mail a verificar</param>
         /// <param name="contraseña"> constrseña a verificar</param>
         /// <returns>Si coinciden las verificaciones, se devuelve el objeto usuario con sus datos</returns>
-        public static Usuario Verificar( string mail, string contraseña)
+        public static Usuario Verificar(string mail, string contraseña, bool registrarAcceso)
         {
             List<Usuario> lista = Deserializacion();
+            return VerificacionPorLista(mail, contraseña, registrarAcceso, lista);
+        }
 
+        public static Usuario Verificar(string mail, string contraseña, bool registrarAcceso, List<Usuario> lista)
+        {
+            return VerificacionPorLista(mail, contraseña, registrarAcceso, lista);
+        }
+
+        private static Usuario VerificacionPorLista(string mail, string contraseña, bool registrarAcceso, List<Usuario> lista)
+        {
             foreach (Usuario user in lista)
             {
                 if (user.Correo == mail && user.Clave == contraseña)
                 {
-                    RegistrarAcceso(user);
+                    if (registrarAcceso) { RegistrarAcceso(user); }
                     return user;
                 }
             }
             return null;
         }
-        
+
         /// <summary>
         /// A partir de un usuario dado se guarda en un archivo la hora
         /// en la que inicio sesion y su informacion

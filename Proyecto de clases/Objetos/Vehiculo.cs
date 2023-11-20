@@ -62,6 +62,11 @@ namespace Entidades
 
         #region propertys
 
+        public string estadoProperty
+        {
+            get { return estado;  }
+        }
+
         public int añoFabricacionProperty
         {
             get

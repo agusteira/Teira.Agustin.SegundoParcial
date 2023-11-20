@@ -87,7 +87,6 @@ namespace Entidades
         /// Sobre escritura del Equals que compara todos sus atributos
         /// para determinar si 2 autos son iguales
         /// </summary>
-
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
