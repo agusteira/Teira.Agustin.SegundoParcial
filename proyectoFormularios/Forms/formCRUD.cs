@@ -32,16 +32,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             InitializeComponent();
 
-            contenedora.vehiculosProperty = Contenedora<Vehiculo>.Deserializacion("");
-
             //Suscripcion a eventos
-            this.contenedora.VehiculoAgregado += new VehiculoSubidoEventHandler(Advertencias.VehiculoNuevo);
-            this.contenedora.VehiculoNoAgregado += new VehiculoSubidoEventHandler(Advertencias.VehiculoRepetido);
-            this.contenedora.VehiculoModificado += new VehiculoSubidoEventHandler(Advertencias.VehiculoModificado);
-            this.contenedora.VehiculoEliminado += new VehiculoSubidoEventHandler(Advertencias.VehiculoEliminado);
+            this.contenedora.VehiculoAgregado += new VehiculoEventHandler(Advertencias.VehiculoNuevo);
+            this.contenedora.VehiculoNoAgregado += new VehiculoEventHandler(Advertencias.VehiculoRepetido);
+            this.contenedora.VehiculoModificado += new VehiculoEventHandler(Advertencias.VehiculoModificado);
+            this.contenedora.VehiculoEliminado += new VehiculoEventHandler(Advertencias.VehiculoEliminado);
 
-            //Task cargarComponentes = Task.Run(() => CargarInterfaz(user));
-            this.CargarInterfaz(user);
+            Task.Run(() => CargarInterfaz(user));
         }
 
         #region instrucciones botones
@@ -109,7 +106,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Queres eliminar este objeto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = Advertencias.ConfirmacionEliminarObjeto();
 
             if (DialogResult.Yes == result)
             {
@@ -119,7 +116,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 {
                     return;
                 }
-                this.contenedora.eliminar(indice);
+                this.contenedora.Eliminar(indice);
                 this.ActualizarVisor();
             }
         }
@@ -166,7 +163,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 return;
             }
             string estado = this.contenedora.vehiculosProperty[indice].Encender();
-            MessageBox.Show(estado);
+            Advertencias.PrenderVehiculo(estado);
             this.ActualizarVisor();
 
         }
@@ -232,11 +229,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño));
+                //Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño));
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax));
+                //Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax));
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
             }
         }
 
@@ -250,11 +249,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño));
+                //Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño));
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax));
+                //Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax));
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
             }
         }
 
@@ -271,19 +272,15 @@ namespace Teira.Agustin.PrimerParcial.Forms
             }
             else
             {
-                this.boxObjetcts.Items.Clear();
-                foreach (Vehiculo v in this.contenedora.vehiculosProperty)
-                {
-                    boxObjetcts.Items.Add(v.ToString());
-                }
                 try
                 {
-                    Contenedora<Vehiculo>.Serializacion(this.contenedora.vehiculosProperty, "");
+                    this.boxObjetcts.Items.Clear();
+                    foreach (Vehiculo v in this.contenedora.vehiculosProperty)
+                    {
+                        boxObjetcts.Items.Add(v.ToString());
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"No se pudieron guardar los datos correctamente debido a {ex}");
-                }
+                catch { }
             }
             
         }
@@ -320,13 +317,18 @@ namespace Teira.Agustin.PrimerParcial.Forms
             }
             else
             {
-                DateTime thisDay = DateTime.Today;
-                this.txtFecha.Text = thisDay.ToString("d");
-                this.usuario = new Usuario();
-                this.txtUsuario.Text = this.usuario.ToString();
+                try
+                {
+                    DateTime thisDay = DateTime.Today;
+                    this.txtFecha.Text = thisDay.ToString("d");
+                    this.usuario = new Usuario();
+                    this.txtUsuario.Text = this.usuario.ToString();
+                    contenedora.vehiculosProperty = Contenedora<Vehiculo>.ConectarBD();
 
-                this.DefinirPerfiles();
-                this.ActualizarVisor();
+                    Task.Run(() => this.ActualizarVisor());
+                    Task.Run(() => this.DefinirPerfiles());
+                }
+                catch (Exception ex) { this.CargarInterfaz(user); }
             }
         }
 

@@ -20,6 +20,5 @@ namespace Teira.Agustin.PrimerParcial.Forms
             this.txtAtributo1.Text = a.propertyCapacidad.ToString();
             this.txtAtributo2.Text = a.propertyVolumenTanque.ToString();
         }
-
     }
 }

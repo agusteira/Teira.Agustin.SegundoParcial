@@ -41,5 +41,15 @@ namespace Teira.Agustin.PrimerParcial.Forms
             return retorno;
         }
    
+        public static DialogResult ConfirmacionEliminarObjeto()
+        {
+            DialogResult retorno = MessageBox.Show("Queres eliminar este objeto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return retorno;
+        }
+
+        public static void PrenderVehiculo(string estado)
+        {
+            MessageBox.Show(estado, "On/Off", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

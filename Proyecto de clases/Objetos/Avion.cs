@@ -111,7 +111,6 @@ namespace Entidades
         }
         #endregion
 
-
         #region metodos
         /// <summary>
         /// Este metodo modifica varios atributos del objeto para hacer

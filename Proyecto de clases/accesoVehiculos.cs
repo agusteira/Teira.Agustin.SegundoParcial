@@ -26,7 +26,7 @@ namespace Entidades
             this.connection = new SqlConnection(AccesoVehiculos.connectionString);
         }
 
-        public bool TestConnection()
+        public bool TestearConexion()
         {
             bool result = false;
 

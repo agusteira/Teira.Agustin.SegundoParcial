@@ -13,15 +13,15 @@ using Newtonsoft.Json.Linq;
 namespace Entidades
 {
     // Declaración del delegado para el evento de adición de vehículo
-    public delegate void VehiculoSubidoEventHandler();
+    public delegate void VehiculoEventHandler();
 
     public class Contenedora<T> where T : Vehiculo
     {
         //eventos
-        public event VehiculoSubidoEventHandler VehiculoAgregado;
-        public event VehiculoSubidoEventHandler VehiculoNoAgregado;
-        public event VehiculoSubidoEventHandler VehiculoEliminado;
-        public event VehiculoSubidoEventHandler VehiculoModificado;
+        public event VehiculoEventHandler VehiculoAgregado;
+        public event VehiculoEventHandler VehiculoNoAgregado;
+        public event VehiculoEventHandler VehiculoEliminado;
+        public event VehiculoEventHandler VehiculoModificado;
 
         protected List<Vehiculo> vehiculos;
         protected static string pathPredeterminado = @".\objetos.json";
@@ -51,7 +51,7 @@ namespace Entidades
             }
         }
 
-        public void eliminar(int indice)
+        public void Eliminar(int indice)
         {
             if (this == (T)(vehiculos[indice]))
             {
@@ -61,7 +61,7 @@ namespace Entidades
             }
         }
 
-        public void eliminar(T v)
+        public void Eliminar(T v)
         {
             if (this == v)
             {
@@ -100,7 +100,7 @@ namespace Entidades
         /// <returns></returns>
         public static Contenedora<T> operator -(Contenedora<T> lista, T v)
         {
-            lista.eliminar(v);
+            lista.Eliminar(v);
             return lista;
         }
 
@@ -211,23 +211,8 @@ namespace Entidades
         }
         #endregion
 
-        public static void Serializacion(List<Vehiculo> vehiculos, string path) { }
-
-        public static List<Vehiculo> Deserializacion(string path) 
-        { 
-            List<Vehiculo> listaVehiculos = new List<Vehiculo>();
-            AccesoVehiculos ado = new AccesoVehiculos();
-
-            if (ado.TestConnection())
-            {
-                listaVehiculos = ado.ObtenerListaVehiculos();
-            }
-
-            return listaVehiculos; 
-        }
-
-        /*
         #region serializacion
+
         /// <summary>
         /// A partir de una lista dada y una ruta, te serializa los objetos de la lista
         /// en un json y lo guarda en el path dado, si el path dado se determina uno
@@ -237,28 +222,19 @@ namespace Entidades
         /// <param name="path">La ruta del archivo</param>
         public static void Serializacion(List<Vehiculo> vehiculos, string path)
         {
-            //Si el path dado no es correcto, se utiliza uno predeterminado
             if (path == null || path.Length == 0) { path = pathPredeterminado; }
-            else 
-            { 
-                //Si el path no contiene la extension .json, se le agrega, asi puede
-                //guardarse de forma correcta
+            else
+            {
                 if (!path.Contains(".json"))
                 {
                     path += ".json";
                 }
             }
 
-            try //serializar
-            {
-                string json = JsonConvert.SerializeObject(vehiculos, Formatting.Indented);
-                File.WriteAllText(path, json);
-            }
-            catch { }   
-            
+            string json = JsonConvert.SerializeObject(vehiculos, Formatting.Indented);
+            File.WriteAllText(path, json);
         }
-        
-        
+
         /// <summary>
         /// deserializar un json a partir de una ruta dada, y lo convierte
         /// en una lista de vehiculos
@@ -268,52 +244,55 @@ namespace Entidades
         /// <exception cref="InvalidOperationException"></exception>
         public static List<Vehiculo> Deserializacion(string path)
         {
-            //Si el path dado no es correcto, se utiliza uno predeterminado
-            if (path == null || path.Length == 0) { path = pathPredeterminado;  }
-            List<Vehiculo> retorno = new List<Vehiculo>();
+            if (path == null || path.Length == 0) { path = pathPredeterminado; }
 
+            List<Vehiculo> retorno = new List<Vehiculo>();
             //Lee un archivo json y los convierte en objetos
             if (File.Exists(path))
             {
-                try
+                string json = File.ReadAllText(path);
+
+                JArray jsonArray = JArray.Parse(json);
+                foreach (JObject jsonObject in jsonArray)
                 {
-                    string json = File.ReadAllText(path);
-
-                    JArray jsonArray = JArray.Parse(json);
-                    foreach (JObject jsonObject in jsonArray)
+                    int tipo = jsonObject["tipoProperty"].Value<int>();
+                    ; Vehiculo v;
+                    switch (tipo)
                     {
-                        int tipo = jsonObject["tipoProperty"].Value<int>();
-                        Vehiculo v;
-
-                        //Define que tipo de objeto es segun el atributo "Tipo"
-                        //y lo castea a ese objeto
-                        switch (tipo)
-                        {
-                            case 1:
-                                v = jsonObject.ToObject<Auto>();
-                                break;
-                            case 2:
-                                v = jsonObject.ToObject<Avion>();
-                                break;
-                            case 3:
-                                v = jsonObject.ToObject<Tren>();
-                                break;
-                            default:
-                                throw new InvalidOperationException("Tipo de vehículo desconocido");
-                        }
-                        retorno.Add(v);
+                        case 1:
+                            v = jsonObject.ToObject<Auto>();
+                            break;
+                        case 2:
+                            v = jsonObject.ToObject<Avion>();
+                            break;
+                        case 3:
+                            v = jsonObject.ToObject<Tren>();
+                            break;
+                        default:
+                            throw new InvalidOperationException("Tipo de vehículo desconocido");
                     }
+                    retorno.Add(v);
                 }
-                catch { retorno = null; }
-                
             }
 
             // En caso de error o si el archivo no existe, regresar una lista vacía o null según tus necesidades 
             return retorno;
         }
 
+        public static List<Vehiculo> ConectarBD() 
+        { 
+            List<Vehiculo> listaVehiculos = new List<Vehiculo>();
+            AccesoVehiculos ado = new AccesoVehiculos();
+
+            if (ado.TestearConexion())
+            {
+                listaVehiculos = ado.ObtenerListaVehiculos();
+            }
+
+            return listaVehiculos; 
+        }
+
         #endregion
-        */
 
     }
 }

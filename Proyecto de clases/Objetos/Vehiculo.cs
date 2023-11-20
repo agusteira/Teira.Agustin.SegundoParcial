@@ -18,7 +18,7 @@ namespace Entidades
         protected bool apagadoEncendido;
         protected string estado;
 
-        #region contstructores
+        #region constructores
         /// <summary>
         /// Constructor que no toma ningun argumento e inicializa sus atributos
         /// los demas constructores van tomando de a unos sus atributos
