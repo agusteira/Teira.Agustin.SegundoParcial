@@ -38,7 +38,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
             this.contenedora.VehiculoModificado += new VehiculoEventHandler(Advertencias.VehiculoModificado);
             this.contenedora.VehiculoEliminado += new VehiculoEventHandler(Advertencias.VehiculoEliminado);
 
-            Task.Run(() => CargarInterfaz(user));
+            Task.Run(() => CargarInicio(user));
         }
 
         #region instrucciones botones
@@ -165,7 +165,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
             string estado = this.contenedora.vehiculosProperty[indice].Encender();
             Advertencias.PrenderVehiculo(estado);
             this.ActualizarVisor();
-
         }
 
         /// <summary>
@@ -229,13 +228,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                //Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño));
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
+                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño));
+                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                //Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax));
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
+                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax));
+                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
             }
         }
 
@@ -249,13 +248,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                //Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño));
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
+                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño));
+                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                //Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax));
-                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
+                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax));
+                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
             }
         }
 
@@ -282,7 +281,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 }
                 catch { }
             }
-            
+
         }
 
         /// <summary>
@@ -306,13 +305,13 @@ namespace Teira.Agustin.PrimerParcial.Forms
             */
         }
 
-        private void CargarInterfaz(Usuario user)
+        private void CargarInicio(Usuario user)
         {
             if (this.InvokeRequired)
             {
                 // Si estamos en un hilo diferente al de la interfaz de usuario,
                 // ejecutamos el código a través del hilo de la interfaz de usuario.
-                ActionCargarInterfaz delegado = new ActionCargarInterfaz(CargarInterfaz);
+                ActionCargarInterfaz delegado = new ActionCargarInterfaz(CargarInicio);
                 this.BeginInvoke(delegado, new object[] { user });
             }
             else
@@ -328,7 +327,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                     Task.Run(() => this.ActualizarVisor());
                     Task.Run(() => this.DefinirPerfiles());
                 }
-                catch (Exception ex) { this.CargarInterfaz(user); }
+                catch (Exception ex) { this.CargarInicio(user); }
             }
         }
 

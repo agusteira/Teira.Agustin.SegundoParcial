@@ -53,13 +53,13 @@
             boxObjetcts.ItemHeight = 28;
             boxObjetcts.Location = new Point(12, 100);
             boxObjetcts.Name = "boxObjetcts";
-            boxObjetcts.Size = new Size(879, 564);
+            boxObjetcts.Size = new Size(1007, 564);
             boxObjetcts.TabIndex = 0;
             // 
             // btnAgregar
             // 
             btnAgregar.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregar.Location = new Point(897, 100);
+            btnAgregar.Location = new Point(1025, 101);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 75);
             btnAgregar.TabIndex = 1;
@@ -70,7 +70,7 @@
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminar.Location = new Point(897, 181);
+            btnEliminar.Location = new Point(1025, 182);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 75);
             btnEliminar.TabIndex = 2;
@@ -81,7 +81,7 @@
             // btnModificar
             // 
             btnModificar.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.Location = new Point(897, 262);
+            btnModificar.Location = new Point(1025, 263);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 75);
             btnModificar.TabIndex = 3;
@@ -131,7 +131,7 @@
             // btnOrdenamientoAscendente
             // 
             btnOrdenamientoAscendente.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOrdenamientoAscendente.Location = new Point(897, 508);
+            btnOrdenamientoAscendente.Location = new Point(1025, 509);
             btnOrdenamientoAscendente.Name = "btnOrdenamientoAscendente";
             btnOrdenamientoAscendente.Size = new Size(75, 75);
             btnOrdenamientoAscendente.TabIndex = 9;
@@ -142,7 +142,7 @@
             // btnEncender
             // 
             btnEncender.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEncender.Location = new Point(897, 589);
+            btnEncender.Location = new Point(1025, 590);
             btnEncender.Name = "btnEncender";
             btnEncender.Size = new Size(75, 75);
             btnEncender.TabIndex = 10;
@@ -153,7 +153,7 @@
             // btnOrdenamientoDescendente
             // 
             btnOrdenamientoDescendente.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOrdenamientoDescendente.Location = new Point(897, 427);
+            btnOrdenamientoDescendente.Location = new Point(1025, 428);
             btnOrdenamientoDescendente.Name = "btnOrdenamientoDescendente";
             btnOrdenamientoDescendente.Size = new Size(75, 75);
             btnOrdenamientoDescendente.TabIndex = 11;
@@ -206,7 +206,7 @@
             // btnVisualidorLogins
             // 
             btnVisualidorLogins.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVisualidorLogins.Location = new Point(878, 11);
+            btnVisualidorLogins.Location = new Point(1006, 12);
             btnVisualidorLogins.Name = "btnVisualidorLogins";
             btnVisualidorLogins.Size = new Size(91, 75);
             btnVisualidorLogins.TabIndex = 16;
@@ -218,7 +218,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(981, 739);
+            ClientSize = new Size(1109, 739);
             Controls.Add(btnVisualidorLogins);
             Controls.Add(txtUsuario);
             Controls.Add(btnDeserializar);
@@ -238,9 +238,9 @@
             Name = "formCRUD";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "formCRUD";
+            FormClosing += formCRUD_FormClosing;
             ResumeLayout(false);
             PerformLayout();
-            FormClosing += formCRUD_FormClosing;
         }
 
         #endregion

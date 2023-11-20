@@ -44,7 +44,7 @@
             // btnVolver
             // 
             btnVolver.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVolver.Location = new Point(313, 400);
+            btnVolver.Location = new Point(339, 400);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(107, 54);
             btnVolver.TabIndex = 1;

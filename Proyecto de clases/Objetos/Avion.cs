@@ -77,7 +77,7 @@ namespace Entidades
         {
             return "AVION:  " + this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + " km/h- " + 
                  this.colorPredominante + " - Asientos: " + this.asientos.ToString() + " - Motores: " + this.cantMotores.ToString() 
-                 + "                     " + this.estado;
+                 + "                        " + this.estado;
         }
 
         /// <summary>

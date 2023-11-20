@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace login
 {
@@ -35,6 +36,18 @@ namespace login
                 retorno = null;
             }
             return retorno;
+        }
+
+        /// <summary>
+        /// Por si se quiere realizar algun cambio en la estructura de los perfiles, se crea
+        /// este metodo que tiene como finalidad cambiar la lista de usuarios registrados
+        /// </summary>
+        /// <param name="usuarios">la lista de usuarioa a serializar</param>
+        /// <param name="path">El path donde se guardara la lista</param>
+        private static void Serializacion(List<Usuario> usuarios, string path = @"..\..\..\MOCK_DATA.json")
+        {
+            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+            File.WriteAllText(path, json);
         }
 
         /// <summary>
