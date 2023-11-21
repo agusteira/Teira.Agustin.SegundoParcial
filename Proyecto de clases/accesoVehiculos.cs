@@ -178,7 +178,7 @@ namespace Entidades
                         atributoExtraDos = VTren.propertyPaisOrigen;
                         break;
                     default:
-                        throw new InvalidOperationException("Tipo de vehículo desconocido");
+                        throw new ExceptionVehiculoInvalido("Tipo de vehículo desconocido");
                 }
 
                 this.command.Parameters.AddWithValue("@atributoExtraUno", atributoExtraUno);

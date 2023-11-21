@@ -268,7 +268,7 @@ namespace Entidades
                             v = jsonObject.ToObject<Tren>();
                             break;
                         default:
-                            throw new InvalidOperationException("Tipo de vehículo desconocido");
+                            throw new ExceptionVehiculoInvalido("Tipo de vehículo desconocido");
                     }
                     retorno.Add(v);
                 }

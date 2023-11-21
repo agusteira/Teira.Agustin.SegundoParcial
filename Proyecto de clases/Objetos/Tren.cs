@@ -112,7 +112,7 @@ namespace Entidades
 
         /// <summary>
         /// Este metodo modifica varios atributos del objeto para hacer
-        /// de cuenta que se "predio" o "apago" y esta en "viaje" o "detenido"
+        /// de cuenta que se "prendio" o "apago" y esta en "viaje" o "detenido"
         /// </summary>
         public override string Encender()
         {

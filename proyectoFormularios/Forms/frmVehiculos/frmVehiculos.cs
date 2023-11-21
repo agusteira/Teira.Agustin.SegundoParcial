@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using colores;
+using Entidades;
 
 namespace Teira.Agustin.PrimerParcial.Forms
 {
     public partial class frmVehiculos : Form
     {
-        public Entidades.Vehiculo vehicular;
+        public Vehiculo vehicular;
         public string tipo;
 
         #region constructores
@@ -26,7 +27,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// Sobrecarga para la modificacion de un objeto y que se carguen sus atributos en el form
         /// </summary>
         /// <param name="v"> vehiculo donde tomara los atributos</param>
-        public frmVehiculos(Entidades.Vehiculo v) : this()
+        public frmVehiculos(Vehiculo v) : this()
         {
             this.txtAño.Text = v.AñoFabricacion.ToString();
             this.txtVelMax.Text = v.VelocidadMaxima.ToString();
@@ -121,6 +122,10 @@ namespace Teira.Agustin.PrimerParcial.Forms
             else if (tipo == "tren")
             {
                 this.cambiarLabels("Cantidad vagones:", "Pais origen:", tipo);
+            }
+            else
+            {
+                throw new ExceptionVehiculoInvalido("Tipo de vehiculo invalido");
             }
         }
 

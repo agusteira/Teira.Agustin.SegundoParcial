@@ -53,7 +53,6 @@ namespace ProyectoPruebasUnitarias
             Assert.AreEqual(correo, usuario.Correo);
             Assert.AreEqual(clave, usuario.Clave);
         }
-
         
         [TestMethod]
         public void Verificar_Incorrecto_NoRegistraAccesoYDevuelveNull()
