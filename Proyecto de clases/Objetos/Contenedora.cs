@@ -282,11 +282,14 @@ namespace Entidades
         { 
             List<Vehiculo> listaVehiculos = new List<Vehiculo>();
             AccesoVehiculos ado = new AccesoVehiculos();
-
-            if (ado.TestearConexion())
+            try
             {
-                listaVehiculos = ado.ObtenerListaVehiculos();
+                if (ado.TestearConexion())
+                {
+                    listaVehiculos = ado.ObtenerListaVehiculos();
+                }
             }
+            catch (Exception ex) { Console.WriteLine("No se pudo obtener la lista de vehiculo por: " + ex) ; }
 
             return listaVehiculos; 
         }

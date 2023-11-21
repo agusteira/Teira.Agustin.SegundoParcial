@@ -75,8 +75,7 @@ namespace Entidades
         public override string ToString()
         {
             return this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + " km/h- " + 
-                 this.colorPredominante + " - Asientos: " + this.asientos.ToString() + " - Motores: " + this.cantMotores.ToString() 
-                 + "                        " + this.estado;
+                 this.colorPredominante + " - Asientos: " + this.asientos.ToString() + " - Motores: " + this.cantMotores.ToString() ;
         }
 
         /// <summary>
@@ -147,10 +146,15 @@ namespace Entidades
             base.definirEstado(e);
         }
 
+
+        /// <summary>
+        /// Descripcion final del vehiculo que se mostrata en el textbox
+        /// </summary>
+        /// <returns>String con descripcion del vehiculo</returns>
         public override string descripcionFinal()
         {
             string retorno;
-            retorno = "AVION: " + this.ToString() + "               " + this.estado ;
+            retorno = "AVION: " + this.ToString() + "                               " + this.estado ;
             return retorno;
         }
         #endregion

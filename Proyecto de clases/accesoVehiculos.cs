@@ -28,17 +28,20 @@ namespace Entidades
 
         public bool TestearConexion()
         {
-            bool result = false;
+            bool result;
 
             try
             {
                 this.connection.Open();
-
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                if (this.connection.State == System.Data.ConnectionState.Open)
+                {
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                    throw new ExceptionNoConectadaABD("No se logro conectar a la base de datos");
+                } 
             }
             finally
             {
@@ -143,7 +146,7 @@ namespace Entidades
     
         public bool ReferenciarObjetoConSql(Vehiculo v, string instruccion)
         {
-            bool result = false;
+            bool result;
             try
             {
                 this.command = new SqlCommand();
@@ -191,11 +194,15 @@ namespace Entidades
                 {
                     result = true;
                 }
+                else
+                {
+                    throw new ExceptionNoSeLogroCambiosEnBD("No se realizo ningun cambio en la base de datos");
+                }
             }
-
-            catch (Exception ex)
+            catch(Exception e) 
             {
-                Console.WriteLine(ex.Message);
+                result = false;
+                Console.WriteLine(e);
             }
             finally
             {

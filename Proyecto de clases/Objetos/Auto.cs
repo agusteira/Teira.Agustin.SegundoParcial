@@ -151,7 +151,7 @@ namespace Entidades
         public override string descripcionFinal()
         {
             string retorno;
-            retorno = "AUTO: " + this.ToString() + "           " + this.estado;
+            retorno = "AUTO: " + this.ToString() + "                 " + this.estado;
             return retorno;
         }
 

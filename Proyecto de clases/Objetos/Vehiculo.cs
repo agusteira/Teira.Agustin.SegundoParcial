@@ -62,7 +62,7 @@ namespace Entidades
 
         #region propertys
 
-        public string EstadoProperty
+        public string Estado
         {
             get { return estado;  }
         }
