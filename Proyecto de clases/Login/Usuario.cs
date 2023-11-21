@@ -39,18 +39,6 @@ namespace login
         }
 
         /// <summary>
-        /// Por si se quiere realizar algun cambio en la estructura de los perfiles, se crea
-        /// este metodo que tiene como finalidad cambiar la lista de usuarios registrados
-        /// </summary>
-        /// <param name="usuarios">la lista de usuarioa a serializar</param>
-        /// <param name="path">El path donde se guardara la lista</param>
-        private static void Serializacion(List<Usuario> usuarios, string path = @"..\..\..\MOCK_DATA.json")
-        {
-            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
-            File.WriteAllText(path, json);
-        }
-
-        /// <summary>
         /// A partir de un mail y constraseñas dadas te verificacion con una lista
         /// si pertecen a un objeto usuario
         /// </summary>

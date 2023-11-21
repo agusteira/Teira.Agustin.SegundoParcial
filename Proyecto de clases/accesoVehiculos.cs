@@ -94,7 +94,7 @@ namespace Entidades
                         vehicular = new Entidades.Tren(añoFabricacion, velocidadMaxima, colorPredominante.ToString(), atributoExtraUno, atributoExtraDos.ToString());
                     }
 
-                    vehicular.idProperty = id; //seteo la id
+                    vehicular.ID = id; //seteo la id
 
                     vehiculos.Add(vehicular);
                 }
@@ -148,16 +148,16 @@ namespace Entidades
             {
                 this.command = new SqlCommand();
                 this.command.Connection = this.connection;
-                this.command.Parameters.AddWithValue("@tipo", v.tipoProperty);
-                this.command.Parameters.AddWithValue("@colorPredominante", v.colorProperty);
-                this.command.Parameters.AddWithValue("@velocidadMaxima", v.velMaxProperty);
-                this.command.Parameters.AddWithValue("@añoFabricacion", v.añoFabricacionProperty);
-                this.command.Parameters.AddWithValue("@id", v.idProperty);
+                this.command.Parameters.AddWithValue("@tipo", v.Tipo);
+                this.command.Parameters.AddWithValue("@colorPredominante", v.ColorPredominante);
+                this.command.Parameters.AddWithValue("@velocidadMaxima", v.VelocidadMaxima);
+                this.command.Parameters.AddWithValue("@añoFabricacion", v.AñoFabricacion);
+                this.command.Parameters.AddWithValue("@id", v.ID);
 
                 int atributoExtraUno;
                 object atributoExtraDos; //object para que me tome tanto int como string
 
-                switch (v.tipoProperty)
+                switch (v.Tipo)
                 {
                     case enumTipos.auto:
                         Auto VAuto = (Auto)v;

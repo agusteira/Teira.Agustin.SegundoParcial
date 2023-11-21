@@ -5,7 +5,7 @@ using System.Data.Common;
 
 namespace Entidades
 {
-    public abstract class Vehiculo
+    public abstract class Vehiculo: IVehiculos
     {
         private static int contadorID = 0;
 
@@ -62,12 +62,12 @@ namespace Entidades
 
         #region propertys
 
-        public string estadoProperty
+        public string EstadoProperty
         {
             get { return estado;  }
         }
 
-        public int añoFabricacionProperty
+        public int AñoFabricacion
         {
             get
             {
@@ -76,7 +76,7 @@ namespace Entidades
             set { añoFabricacion = value; }
         }
 
-        public int velMaxProperty
+        public int VelocidadMaxima
         {
             get
             {
@@ -85,7 +85,7 @@ namespace Entidades
             set { velocidadMax = value; }
         }
 
-        public enumColor colorProperty
+        public enumColor ColorPredominante
         {
             get
             {
@@ -94,7 +94,7 @@ namespace Entidades
             set { colorPredominante = value; }
         }
 
-        public enumTipos tipoProperty
+        public enumTipos Tipo
         {
             get
             {
@@ -103,7 +103,7 @@ namespace Entidades
             set { tipo = value; }
         }
 
-        public int idProperty
+        public int ID
         {
             get { return id; }
             set 
@@ -171,6 +171,7 @@ namespace Entidades
 
         #region metodos
         public abstract string Encender();
+        public abstract string descripcionFinal();
 
         /// <summary>
         /// A partir de booleano dado(el apagadoEncendido) del vehiculo, cambia el atributo estado

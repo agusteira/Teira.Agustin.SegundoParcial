@@ -28,7 +28,6 @@ namespace Entidades
         AccesoVehiculos accesoVehiculos = new AccesoVehiculos();
 
         #region propertys
-
         public List<Vehiculo> vehiculosProperty
         {
             get { return vehiculos; }
@@ -74,7 +73,7 @@ namespace Entidades
         public void Modificar(T v, int indice)
         {
             vehiculos[indice] = v;
-            vehiculos[indice].idProperty = indice + 1;
+            vehiculos[indice].ID = indice + 1;
             accesoVehiculos.ModificarDato(vehiculos[indice]);
             this.VehiculoModificado.Invoke();
         }
@@ -160,11 +159,11 @@ namespace Entidades
         /// <returns></returns>
         public static int OrdenarDescendentePorAño(T v1, T v2)
         {
-            if (v1.añoFabricacionProperty < v2.añoFabricacionProperty)
+            if (v1.AñoFabricacion < v2.AñoFabricacion)
             {
                 return -1;
             }
-            else if (v1.añoFabricacionProperty > v2.añoFabricacionProperty)
+            else if (v1.AñoFabricacion > v2.AñoFabricacion)
             {
                 return 1;
             }
@@ -179,11 +178,11 @@ namespace Entidades
         /// <param name="v2"> segundo vehiculo para comparar</param>
         public static int OrdenarAscedenteVelMax(T v1, T v2)
         {
-            if (v1.velMaxProperty > v2.velMaxProperty)
+            if (v1.VelocidadMaxima > v2.VelocidadMaxima)
             {
                 return -1;
             }
-            else if (v1.velMaxProperty < v2.velMaxProperty)
+            else if (v1.VelocidadMaxima < v2.VelocidadMaxima)
             {
                 return 1;
             }
@@ -199,11 +198,11 @@ namespace Entidades
         public static int OrdenarDescendenteVelMax(T v1, T v2)
         {
 
-            if (v1.velMaxProperty < v2.velMaxProperty)
+            if (v1.VelocidadMaxima < v2.VelocidadMaxima)
             {
                 return -1;
             }
-            else if (v1.velMaxProperty > v2.velMaxProperty)
+            else if (v1.VelocidadMaxima > v2.VelocidadMaxima)
             {
                 return 1;
             }

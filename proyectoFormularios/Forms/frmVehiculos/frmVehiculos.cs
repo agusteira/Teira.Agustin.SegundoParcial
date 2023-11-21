@@ -28,9 +28,9 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// <param name="v"> vehiculo donde tomara los atributos</param>
         public frmVehiculos(Entidades.Vehiculo v) : this()
         {
-            this.txtAño.Text = v.añoFabricacionProperty.ToString();
-            this.txtVelMax.Text = v.velMaxProperty.ToString();
-            this.txtColor.Text = v.colorProperty.ToString();
+            this.txtAño.Text = v.AñoFabricacion.ToString();
+            this.txtVelMax.Text = v.VelocidadMaxima.ToString();
+            this.txtColor.Text = v.ColorPredominante.ToString();
         }
 
         /// <summary>

@@ -7,7 +7,7 @@ using tipos;
 
 namespace Entidades
 {
-    public class Tren : Vehiculo
+    public class Tren : Vehiculo, IVehiculos
     {
         protected int cantVagones;
         protected string paisOrigen;
@@ -73,8 +73,8 @@ namespace Entidades
         /// </summary>
         public override string ToString()
         {
-            return "TREN:    " + this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + " km/h - " 
-                + this.colorPredominante + " - Cant Vagones: " + this.cantVagones.ToString() + " - Origen: " + this.paisOrigen + "               " + this.estado;
+            return this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + " km/h - " 
+                + this.colorPredominante + " - Cant Vagones: " + this.cantVagones.ToString() + " - Origen: " + this.paisOrigen;
         }
 
         /// <summary>
@@ -143,6 +143,13 @@ namespace Entidades
                 this.estado = "Tren detenido";
             }
             base.definirEstado(e);
+        }
+
+        public override string descripcionFinal()
+        {
+            string retorno;
+            retorno = "TREN: " + this.ToString() + "           " + this.estado;
+            return retorno;
         }
 
         #endregion

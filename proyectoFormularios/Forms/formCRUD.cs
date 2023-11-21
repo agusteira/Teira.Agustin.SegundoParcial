@@ -248,13 +248,11 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño));
-                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax));
-                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarDescendenteVelMax);
             }
         }
 
@@ -276,7 +274,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                     this.boxObjetcts.Items.Clear();
                     foreach (Vehiculo v in this.contenedora.vehiculosProperty)
                     {
-                        boxObjetcts.Items.Add(v.ToString());
+                        boxObjetcts.Items.Add(v.descripcionFinal());
                     }
                 }
                 catch { }
@@ -305,6 +303,10 @@ namespace Teira.Agustin.PrimerParcial.Forms
             */
         }
 
+        /// <summary>
+        /// Carga todos los elementos de la pantalla de inicio
+        /// </summary>
+        /// <param name="user">Usuario que se logueo</param>
         private void CargarInicio(Usuario user)
         {
             if (this.InvokeRequired)

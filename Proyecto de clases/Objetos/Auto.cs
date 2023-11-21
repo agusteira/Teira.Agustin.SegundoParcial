@@ -8,7 +8,7 @@ using tipos;
 
 namespace Entidades
 {
-    public class Auto : Vehiculo
+    public class Auto : Vehiculo, IVehiculos
     {
         protected int capacidad;
         protected int volumenTanque;
@@ -79,8 +79,8 @@ namespace Entidades
         /// </summary>
         public override string ToString()
         {
-            return  "AUTO:   " + this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + "km/h - " + this.colorPredominante + 
-                " - Capacidad: " + this.capacidad.ToString() + " - Vol Tanque: " + this.volumenTanque.ToString() + " cm3" + "              " + this.estado;
+            return  this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + "km/h - " + this.colorPredominante + 
+                " - Capacidad: " + this.capacidad.ToString() + " - Vol Tanque: " + this.volumenTanque.ToString() + " cm3";
         }
 
         /// <summary>
@@ -147,6 +147,12 @@ namespace Entidades
                 this.estado = "Auto detenido";
             }
             base.definirEstado(e);
+        }
+        public override string descripcionFinal()
+        {
+            string retorno;
+            retorno = "AUTO: " + this.ToString() + "           " + this.estado;
+            return retorno;
         }
 
         #endregion

@@ -7,11 +7,10 @@ using tipos;
 
 namespace Entidades
 {
-    public class Avion : Vehiculo
+    public class Avion : Vehiculo, IVehiculos
     {
         protected int asientos;
         protected int cantMotores;
-
 
         #region constructores
         /// <summary>
@@ -75,7 +74,7 @@ namespace Entidades
         /// </summary>
         public override string ToString()
         {
-            return "AVION:  " + this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + " km/h- " + 
+            return this.añoFabricacion.ToString() + " - " + this.velocidadMax.ToString() + " km/h- " + 
                  this.colorPredominante + " - Asientos: " + this.asientos.ToString() + " - Motores: " + this.cantMotores.ToString() 
                  + "                        " + this.estado;
         }
@@ -114,7 +113,7 @@ namespace Entidades
         #region metodos
         /// <summary>
         /// Este metodo modifica varios atributos del objeto para hacer
-        /// de cuenta que se "predio" o "apago" y esta en "viaje" o "detenido"
+        /// de cuenta que se "prendio" o "apago" y esta en "viaje" o "detenido"
         /// </summary>
         public override string Encender()
         {
@@ -148,6 +147,12 @@ namespace Entidades
             base.definirEstado(e);
         }
 
+        public override string descripcionFinal()
+        {
+            string retorno;
+            retorno = "AVION: " + this.ToString() + "               " + this.estado ;
+            return retorno;
+        }
         #endregion
     }
 }
