@@ -12,7 +12,6 @@ namespace Entidades
         protected int cantVagones;
         protected string paisOrigen;
 
-
         #region constructores
         /// <summary>
         /// Constructor para la inicializacion del objeto cuando se deserialiaza

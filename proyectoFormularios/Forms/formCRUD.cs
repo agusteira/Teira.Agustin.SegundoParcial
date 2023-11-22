@@ -228,13 +228,11 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (frm.ordenamiento == "año")
             {
-                Task ordenamientoAño = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño));
-                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedentePorAño);
             }
             else if (frm.ordenamiento == "velocidad")
             {
-                Task ordenamientoVelocidad = Task.Run(() => contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax));
-                //contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
+                contenedora.vehiculosProperty.Sort(Contenedora<Vehiculo>.OrdenarAscedenteVelMax);
             }
         }
 
@@ -289,7 +287,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void DefinirPerfiles()
         {
-            /*
             if (this.usuario.Perfil == "vendedor")
             {
                 this.btnAgregar.Enabled = false;
@@ -300,7 +297,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
             {
                 this.btnEliminar.Enabled = false;
             }
-            */
         }
 
         /// <summary>

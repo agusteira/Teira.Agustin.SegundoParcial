@@ -112,11 +112,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 17F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(142, 35);
+            label1.Location = new Point(127, 18);
             label1.Name = "label1";
-            label1.Size = new Size(95, 31);
+            label1.Size = new Size(121, 62);
             label1.TabIndex = 7;
-            label1.Text = "Vel Max";
+            label1.Text = "Velocidad \r\nMaxima";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
