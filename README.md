@@ -14,5 +14,7 @@ Controlar el Estado del Vehículo: Puedes "prender" o "apagar" un vehículo, y s
 Cargar/Listas de Objetos Externos: Puedes cargar listas de objetos externas seleccionándolas mediante un botón de búsqueda. También puedes elegir dónde guardar el archivo de objetos.
 Registro de Sesión: Puedes ver quién está logueado y cuándo se loguearon. La aplicación muestra la fecha y hora actual junto con la información del usuario.
 
+*La solucion esta dentro de la carpeta "Proyecto formularios"
 
-Diagrama de Clases: ![image](https://github.com/agusteira/Teira.Agustin.PrimerParcial/assets/124114633/9814e46c-2a88-49d7-965f-f95d8d32961b)
+
+Diagrama de Clases:
