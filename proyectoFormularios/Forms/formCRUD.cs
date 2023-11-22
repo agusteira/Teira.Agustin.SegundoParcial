@@ -23,6 +23,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
 
         private delegate void ActionCargarInterfaz(Usuario user);
         private delegate void ActionActualizarVisor();
+        private delegate void ActionDefinirPerfiles();
 
         /// <summary>
         /// Constructor de inicializacion del form del crud
@@ -287,16 +288,25 @@ namespace Teira.Agustin.PrimerParcial.Forms
         /// </summary>
         private void DefinirPerfiles()
         {
-            if (this.usuario.Perfil == "vendedor")
+            if (this.InvokeRequired)
             {
-                this.btnAgregar.Enabled = false;
-                this.btnEliminar.Enabled = false;
-                this.btnModificar.Enabled = false;
+                ActionDefinirPerfiles delegado = new ActionDefinirPerfiles(DefinirPerfiles);
+                this.BeginInvoke(delegado);
             }
-            else if (this.usuario.Perfil == "supervisor")
+            else
             {
-                this.btnEliminar.Enabled = false;
+                if (this.usuario.Perfil == "vendedor")
+                {
+                    this.btnAgregar.Enabled = false;
+                    this.btnEliminar.Enabled = false;
+                    this.btnModificar.Enabled = false;
+                }
+                else if (this.usuario.Perfil == "supervisor")
+                {
+                    this.btnEliminar.Enabled = false;
+                }
             }
+            
         }
 
         /// <summary>
@@ -307,8 +317,6 @@ namespace Teira.Agustin.PrimerParcial.Forms
         {
             if (this.InvokeRequired)
             {
-                // Si estamos en un hilo diferente al de la interfaz de usuario,
-                // ejecutamos el código a través del hilo de la interfaz de usuario.
                 ActionCargarInterfaz delegado = new ActionCargarInterfaz(CargarInicio);
                 this.BeginInvoke(delegado, new object[] { user });
             }
@@ -318,7 +326,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 {
                     DateTime thisDay = DateTime.Today;
                     this.txtFecha.Text = thisDay.ToString("d");
-                    this.usuario = new Usuario();
+                    this.usuario = user;
                     this.txtUsuario.Text = this.usuario.ToString();
                     contenedora.vehiculosProperty = Contenedora<Vehiculo>.ConectarBD();
 

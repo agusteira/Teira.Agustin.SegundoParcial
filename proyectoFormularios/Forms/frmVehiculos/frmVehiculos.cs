@@ -46,7 +46,7 @@ namespace Teira.Agustin.PrimerParcial.Forms
                 this.lblTipo.Text = this.tipo.ToUpper();
                 this.definirTipoParaLabels(this.tipo);
             }
-            catch { }
+            catch (Exception e){ Console.WriteLine(e); }
             
         }
 
