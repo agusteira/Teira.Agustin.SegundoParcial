@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Proyecto_de_forms.Forms.frmAcciones.frmSort">
+    <Position X="13.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABAAAACAAABAhAACAAAACAABAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Forms\frmAcciones\frmSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto_de_forms.Forms.frmAcciones.visualizadorLogins">
+    <Position X="13.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACEAAAQAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\frmAcciones\visualizadorLogins.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.frmAutos">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\frmVehiculos\frmAutos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.frmAviones">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\frmVehiculos\frmAviones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.frmTrenes">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\frmVehiculos\frmTrenes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.frmVehiculos">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQhAAAACAAAJAACAiAAIADAAhBAAEAAAgQCEBAAAA=</HashCode>
+      <FileName>Forms\frmVehiculos\frmVehiculos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.formCRUD">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="Teira.Agustin.PrimerParcial.Forms.formCRUD.ActionCargarInterfaz" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\formCRUD.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Teira.Agustin.PrimerParcial.Forms.formCRUD.ActionActualizarVisor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\formCRUD.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAgAGAEACCAkhgQAACGQAAKiABMBEQQABAQIAAACgA=</HashCode>
+      <FileName>Forms\formCRUD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.frmElegirTipo">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAABACAQAEAAAACCAAACAAAAAAAgAAAAIAAAAAQ=</HashCode>
+      <FileName>Forms\frmElegirTipo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teira.Agustin.PrimerParcial.Forms.Login">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgEAAAAACAAAJAAAACAAAACAABQCAQAAAAAAABAAAA=</HashCode>
+      <FileName>Forms\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
