@@ -91,7 +91,7 @@ namespace Entidades
 
             Avion v = (Avion)obj; //Parseo el objeto a avion para entrar a sus atributos
 
-            return (this.añoFabricacion == v.añoFabricacion && this.velocidadMax == v.velocidadMax && this.colorPredominante == v.colorPredominante
+            return (this.añoFabricacion == v.añoFabricacion && this.id == v.id
                 && this.asientos == v.asientos && this.cantMotores == v.cantMotores);
         }
 
@@ -148,9 +148,9 @@ namespace Entidades
 
 
         /// <summary>
-        /// Descripcion final del vehiculo que se mostrata en el textbox
+        /// Descripcion final del vehiculo que se mostrara en el listbox
         /// </summary>
-        /// <returns>String con descripcion del vehiculo</returns>
+        /// <returns>un string con la descripcion</returns>
         public override string descripcionFinal()
         {
             string retorno;

@@ -51,11 +51,22 @@ namespace login
             return VerificacionPorLista(mail, contraseña, registrarAcceso, lista);
         }
 
+        /// <summary>
+        /// Sobrecarga con la opcion de pasarle una lista de usuario como parametro
+        /// </summary>
         public static Usuario Verificar(string mail, string contraseña, bool registrarAcceso, List<Usuario> lista)
         {
             return VerificacionPorLista(mail, contraseña, registrarAcceso, lista);
         }
 
+        /// <summary>
+        /// Verificacion final de usuario
+        /// </summary>
+        /// <param name="mail">Mail dado</param>
+        /// <param name="contraseña">Contraseña dada</param>
+        /// <param name="registrarAcceso">Booleano que define si se registra o no el acceso</param>
+        /// <param name="lista">Lista de usuario a verificar</param>
+        /// <returns></returns>
         private static Usuario VerificacionPorLista(string mail, string contraseña, bool registrarAcceso, List<Usuario> lista)
         {
             foreach (Usuario user in lista)

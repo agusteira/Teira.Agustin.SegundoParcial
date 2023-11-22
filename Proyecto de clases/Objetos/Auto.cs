@@ -96,7 +96,7 @@ namespace Entidades
 
             Auto v = (Auto)obj; //Parseo el objeto a auto para entrar a sus atributos
 
-            return (this.añoFabricacion == v.añoFabricacion && this.velocidadMax == v.velocidadMax && this.colorPredominante == v.colorPredominante
+            return (this.añoFabricacion == v.añoFabricacion && this.id == v.id
                 && this.capacidad == v.capacidad && this.volumenTanque == v.volumenTanque);
         }
 
@@ -148,6 +148,11 @@ namespace Entidades
             }
             base.definirEstado(e);
         }
+        
+        /// <summary>
+        /// Descripcion final del vehiculo que se mostrara en el listbox
+        /// </summary>
+        /// <returns>un string con la descripcion</returns>
         public override string descripcionFinal()
         {
             string retorno;

@@ -141,7 +141,7 @@ namespace Entidades
 
             Vehiculo v = (Vehiculo)obj; //Parseo el objeto a vehiculo para entrar a sus atributos
 
-            return (this.añoFabricacion == v.añoFabricacion && this.velocidadMax == v.velocidadMax && this.colorPredominante == v.colorPredominante);
+            return (this.añoFabricacion == v.añoFabricacion && this.id == v.id);
         }
 
         #endregion
