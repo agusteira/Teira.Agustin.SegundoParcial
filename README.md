@@ -18,3 +18,5 @@ Registro de Sesión: Puedes ver quién está logueado y cuándo se loguearon. La
 
 
 Diagrama de Clases:
+![Diagrama de clases Objetos](https://github.com/agusteira/Teira.Agustin.SegundoParcial/assets/124114633/c4457029-f407-40df-9d20-e8e93fe8d556)
+![Diagrama de clases Formularios](https://github.com/agusteira/Teira.Agustin.SegundoParcial/assets/124114633/10e94d73-acbb-4d76-b360-cca277e5b66b)
