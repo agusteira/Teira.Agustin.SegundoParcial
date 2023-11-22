@@ -26,6 +26,11 @@ namespace Entidades
             this.connection = new SqlConnection(AccesoVehiculos.connectionString);
         }
 
+        /// <summary>
+        /// Testeo de conexion con la base de datos
+        /// </summary>
+        /// <returns>Ub booleano si se conecto o no</returns>
+        /// <exception cref="ExceptionNoConectadaABD">Excepcion si no se conecta a BD</exception>
         public bool TestearConexion()
         {
             bool result;
@@ -54,6 +59,10 @@ namespace Entidades
             return result;
         }
 
+        /// <summary>
+        /// Conexion a base de datos y obtener la lista de vehiculo
+        /// </summary>
+        /// <returns>Lista de vehiculos de la BD</returns>
         public List<Vehiculo> ObtenerListaVehiculos()
         {
             List<Vehiculo> vehiculos = new List<Vehiculo>();
@@ -143,7 +152,14 @@ namespace Entidades
             result = this.ReferenciarObjetoConSql(v, instruccion);
             return result;
         }
-    
+        
+        /// <summary>
+        /// Referencia un vehiculo especifico con la BD
+        /// y hacer algo con eso
+        /// </summary>
+        /// <param name="v">Vehiculo que se quiere refe</param>
+        /// <param name="instruccion">Instruccion que se va a ejecutar</param>
+        /// <returns>Booleano si se ejecuto o no lo que se queria hacer</returns>
         public bool ReferenciarObjetoConSql(Vehiculo v, string instruccion)
         {
             bool result;
